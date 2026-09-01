@@ -19,7 +19,7 @@ We are currently experimenting with leveraging native Shopify Bundles to build o
 
 For example, the Anniversary Bundle contains 2,592 variants and 6 product options, which means we’ve had to create 12 different bundles to get around the limits:
 
-![Image title](/assets/bundles_mess.png{ align=left }
+![Image title](/assets/bundles_mess.png){ align=left }
 
 We’re leveraging Shopify’s Section Rendering API to create a seamless experience for the user - however, from a product management standpoint, this is not ideal. That said, this switch has led to vast improvements in our fulfillment process, including returns. 
 
@@ -37,4 +37,4 @@ We are currently using the app Simple Bundles to create “Infinite Options” b
 
 Another solution we’ve been exploring for POS is configuring discount functions with the help of Power X - Functions, which would allow retail staff to add individual bundle components to a customer’s cart - the cart would then automatically bundle items if it meets the criteria:
 
-![Image title](/assets/automatic_bundles.gif align=left }
+![Image title](/assets/automatic_bundles.gif){ align=left }
