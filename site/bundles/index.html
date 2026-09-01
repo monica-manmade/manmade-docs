@@ -577,7 +577,7 @@ The bundle components did not break down in Shopify - rather, we would map the b
 <h2 id="what-were-moving-towards">What we’re moving towards<a class="headerlink" href="#what-were-moving-towards" title="Permanent link">&para;</a></h2>
 <p>We are currently experimenting with leveraging native Shopify Bundles to build out our bundles to avoid creating new SKUs, which creates additional labour and complications downstream. However, we are still experiencing friction with Shopify’s product option limit. </p>
 <p>For example, the Anniversary Bundle contains 2,592 variants and 6 product options, which means we’ve had to create 12 different bundles to get around the limits:</p>
-<p><img align="left" alt="Image title" src="/bundles_mess.png" /></p>
+<p>![Image title](../site/assets/bundles_mess.png{ align=left }</p>
 <p>We’re leveraging Shopify’s Section Rendering API to create a seamless experience for the user - however, from a product management standpoint, this is not ideal. That said, this switch has led to vast improvements in our fulfillment process, including returns. </p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
@@ -589,7 +589,7 @@ This could be accomplished by building a custom implementation that leverages th
 <p>We are currently using the app Simple Bundles to create “Infinite Options” bundles to make it easier for retail staff to customize bundles, as having 12 of the same bundle in our product catalogue would make for an undesirable user experience. Simple Bundles uses the Cart Transform API to expand a parent product into its children. Although relying on a 3<sup>rd</sup>–party app is not ideal, it was a quick and easy solution to implement for the time being. Eventually we’d like to move away from this. </p>
 <h3 id="bundling-with-automatic-discount-functions-power-x-functions">Bundling with Automatic Discount Functions (Power X - Functions)<a class="headerlink" href="#bundling-with-automatic-discount-functions-power-x-functions" title="Permanent link">&para;</a></h3>
 <p>Another solution we’ve been exploring for POS is configuring discount functions with the help of Power X - Functions, which would allow retail staff to add individual bundle components to a customer’s cart - the cart would then automatically bundle items if it meets the criteria:</p>
-<p><img align="left" alt="Image title" src="/automatic_bundles.gif" /></p>
+<p>![Image title](/../site/assets/automatic_bundles.gif align=left }</p>
 
 
 
