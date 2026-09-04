@@ -33,12 +33,12 @@ We’re leveraging Shopify’s Section Rendering API to create a seamless experi
 | -------------------- | ------------------------------------ | ----------------------------------- | ------------------------- |
 | SKU Management       | ❌ Bad - Creates additional labour and complications downstream. | ✅        | ✅     |
 | Order Edits          |✅ |  ❌ Bad - Bundles cannot be easily edited in the Shopify Admin | TBD |
-| Fulfillment          |   🟡 OK - Low component visibility for warehouse team     | 🟡 OK  - Packing slip does not show bundle components        | ✅  |
+| Fulfillment          |   🟡 OK - Low component visibility for warehouse team     | 🟡 OK  - Packing slip does not show bundle components on line items, only in order notes.        | ✅  |
 | Exchanges/Returns (Online) | 🟡 OK - Requires additional product mapping in AfterShip            | ✅          | ✅ 
 | Exchanges/Returns (Online > POS)      | ❌ Bad - Retail staff must refund the entire order, re-purchase, and partially fulfill          | ✅         | ✅  |
 | Inventory Management | ❌ Bad - Finance team needs to manually track OOS bundles          |  ✅          | ✅           |
 | State Taxes          | ❌ Bad - State tax exemptions are not respected       |  ✅          | ✅  |
-| Product Option Limit | ❌ Bad            |  ❌ Bad          | ✅  |
+| Product Option Limit | ❌ Bad - 3 product options max             |  ❌ Bad - 3 product options max          | ✅  |
 | Location Scope       | ✅        |  ✅    | ✅  |
 | Shop App             | ✅          |  ✅          | ❌ Bad - No control over Shop app UI  |
 | Finance              | TBD    |  TBD          | TBD  |
