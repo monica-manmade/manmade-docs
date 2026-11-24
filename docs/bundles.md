@@ -48,8 +48,31 @@ We’re leveraging Shopify’s Section Rendering API to create a seamless experi
 
 We are currently using the app Simple Bundles to create “Infinite Options” bundles to make it easier for retail staff to customize bundles, as having 12 of the same bundle in our product catalogue would make for an undesirable user experience. Simple Bundles uses the Cart Transform API to expand a parent product into its children. Although relying on a 3rd–party app is not ideal, it was a quick and easy solution to implement for the time being. Eventually we’d like to move away from this. 
 
+#### Simple Bundles vs Shopify Bundles
+
+| Issue                | Shopify Bundles   | Simple Bundles                     
+| -------------------- | ------------------------------------ | ----------------------------------- |
+| Product Options      | ⚠️ 3 Product Options max - will require creating multiple products. | ✅ Unlimited Product Options |
+| Variant Filtering    | ⚠️ Does not filter eligable variants - we will need to create additional products as a workaround.  |  ✅ Variants are filtered in the POS UI |
+| Exchanges/Returns    | ⚠️ Exchange for individual product OK, will need to apply custom discount. |  ⚠️ Exchange for individual product OK, will need to apply custom discount.         
+| Inventory Management | ⚠️ Inventory visibility on the child SKU level, not the parent. | ❌ - No inventory visibility. Inifinite Bundles do not calculate inventory properly, so we've turned tracking off. |
+| Shopify POS UI       | ✅  Bundle UI pops up automatically | ⚠️ Requires extra click |
+| Cart Validation      | ✅ Requires bundle customization before ATC |  ❌ No cart or checkout validation     |
+| Fulfillment          | ❌ No bundle group ID - makes it difficult to track bundle components if more than one of the same is purchased       |  ✅  Bundle group ID   |
+
 ### Bundling with Automatic Discount Functions (Power X - Functions) 
 
 Another solution we’ve been exploring for POS is configuring discount functions with the help of Power X - Functions, which would allow retail staff to add individual bundle components to a customer’s cart - the cart would then automatically bundle items if it meets the criteria:
 
 ![Image title](assets/images/automatic_bundles.gif){ align=left }
+
+
+### Black Friday Bundle
+
+For the Black Friday Bundle, because we are pre-packing bundles, we are floating reverting to the old Bundle SKU method to ease fulfillment friction. However, this would then bring back returns/exchanges friction, which is something we were trying to avoid. We will need to choose between the two options:
+
+| Issue                | Product SKU (Old Method)   | Bundle (Shopify/Simple)                    
+| -------------------- | ------------------------------------ | ----------------------------------- |
+| Fulfillment          | ✅ Easy to fulfill, requires one scan per bundle | ⚠️ Would require scanning each bundle component, OR we can enable an Easyscan setting to mark all items as packed (global setting).
+| Exchanges/Returns    | ❌ Cannot easily return individual bundle components.  |  ✅ Can easily return individual bundle components.  | 
+| Inventory Management | ✅ Product goes out of stock when a component sells out. | ⚠️ Would require tracking inventory at the component level. |

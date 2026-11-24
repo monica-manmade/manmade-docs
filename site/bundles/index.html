@@ -449,10 +449,32 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#simple-bundles-vs-shopify-bundles" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Simple Bundles vs Shopify Bundles
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#bundling-with-automatic-discount-functions-power-x-functions" class="md-nav__link">
     <span class="md-ellipsis">
       <span class="md-typeset">
         Bundling with Automatic Discount Functions (Power X - Functions)
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#black-friday-bundle" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Black Friday Bundle
       </span>
     </span>
   </a>
@@ -564,10 +586,32 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#simple-bundles-vs-shopify-bundles" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Simple Bundles vs Shopify Bundles
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#bundling-with-automatic-discount-functions-power-x-functions" class="md-nav__link">
     <span class="md-ellipsis">
       <span class="md-typeset">
         Bundling with Automatic Discount Functions (Power X - Functions)
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#black-friday-bundle" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Black Friday Bundle
       </span>
     </span>
   </a>
@@ -699,9 +743,84 @@ This could be accomplished by building a custom implementation that leverages th
 </table>
 <h2 id="pos">POS<a class="headerlink" href="#pos" title="Permanent link">&para;</a></h2>
 <p>We are currently using the app Simple Bundles to create “Infinite Options” bundles to make it easier for retail staff to customize bundles, as having 12 of the same bundle in our product catalogue would make for an undesirable user experience. Simple Bundles uses the Cart Transform API to expand a parent product into its children. Although relying on a 3<sup>rd</sup>–party app is not ideal, it was a quick and easy solution to implement for the time being. Eventually we’d like to move away from this. </p>
+<h4 id="simple-bundles-vs-shopify-bundles">Simple Bundles vs Shopify Bundles<a class="headerlink" href="#simple-bundles-vs-shopify-bundles" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>Issue</th>
+<th>Shopify Bundles</th>
+<th>Simple Bundles</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Product Options</td>
+<td>⚠️ 3 Product Options max - will require creating multiple products.</td>
+<td>✅ Unlimited Product Options</td>
+</tr>
+<tr>
+<td>Variant Filtering</td>
+<td>⚠️ Does not filter eligable variants - we will need to create additional products as a workaround.</td>
+<td>✅ Variants are filtered in the POS UI</td>
+</tr>
+<tr>
+<td>Exchanges/Returns</td>
+<td>⚠️ Exchange for individual product OK, will need to apply custom discount.</td>
+<td>⚠️ Exchange for individual product OK, will need to apply custom discount.</td>
+</tr>
+<tr>
+<td>Inventory Management</td>
+<td>⚠️ Inventory visibility on the child SKU level, not the parent.</td>
+<td>❌ - No inventory visibility. Inifinite Bundles do not calculate inventory properly, so we've turned tracking off.</td>
+</tr>
+<tr>
+<td>Shopify POS UI</td>
+<td>✅  Bundle UI pops up automatically</td>
+<td>⚠️ Requires extra click</td>
+</tr>
+<tr>
+<td>Cart Validation</td>
+<td>✅ Requires bundle customization before ATC</td>
+<td>❌ No cart or checkout validation</td>
+</tr>
+<tr>
+<td>Fulfillment</td>
+<td>❌ No bundle group ID - makes it difficult to track bundle components if more than one of the same is purchased</td>
+<td>✅  Bundle group ID</td>
+</tr>
+</tbody>
+</table>
 <h3 id="bundling-with-automatic-discount-functions-power-x-functions">Bundling with Automatic Discount Functions (Power X - Functions)<a class="headerlink" href="#bundling-with-automatic-discount-functions-power-x-functions" title="Permanent link">&para;</a></h3>
 <p>Another solution we’ve been exploring for POS is configuring discount functions with the help of Power X - Functions, which would allow retail staff to add individual bundle components to a customer’s cart - the cart would then automatically bundle items if it meets the criteria:</p>
 <p><img align="left" alt="Image title" src="../assets/images/automatic_bundles.gif" /></p>
+<h3 id="black-friday-bundle">Black Friday Bundle<a class="headerlink" href="#black-friday-bundle" title="Permanent link">&para;</a></h3>
+<p>For the Black Friday Bundle, because we are pre-packing bundles, we are floating reverting to the old Bundle SKU method to ease fulfillment friction. However, this would then bring back returns/exchanges friction, which is something we were trying to avoid. We will need to choose between the two options:</p>
+<table>
+<thead>
+<tr>
+<th>Issue</th>
+<th>Product SKU (Old Method)</th>
+<th>Bundle (Shopify/Simple)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Fulfillment</td>
+<td>✅ Easy to fulfill, requires one scan per bundle</td>
+<td>⚠️ Would require scanning each bundle component, OR we can enable an Easyscan setting to mark all items as packed (global setting).</td>
+</tr>
+<tr>
+<td>Exchanges/Returns</td>
+<td>❌ Cannot easily return individual bundle components.</td>
+<td>✅ Can easily return individual bundle components.</td>
+</tr>
+<tr>
+<td>Inventory Management</td>
+<td>✅ Product goes out of stock when a component sells out.</td>
+<td>⚠️ Would require tracking inventory at the component level.</td>
+</tr>
+</tbody>
+</table>
 
 
 
